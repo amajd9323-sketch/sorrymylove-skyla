@@ -1,64 +1,51 @@
+/* الإعدادات العامة */
 :root {
-    --neon: #00ff88;
-    --glass: rgba(255, 255, 255, 0.05);
+    --neon-green: #00ff88;
+    --dark-bg: #0a0a0a;
 }
 
 body {
-    background: #0d0d0d;
+    background-color: var(--dark-bg);
     color: white;
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0; padding-top: 80px;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    margin: 0;
 }
 
-/* حل مشكلة الشعارات المكسورة والخلفية الداكنة */
+/* حل مشكلة الشعارات - جعلها تظهر بوضوح بخلفية بيضاء خفيفة */
 img {
-    max-width: 100%;
-    height: auto;
-    background: white; /* يضمن ظهور الشعارات الشفافة بوضوح */
-    border-radius: 8px;
-    padding: 5px;
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+    margin-left: 10px;
+    background: rgba(255, 255, 255, 0.9); /* خلفية بيضاء لظهور الشعارات المفرغة */
+    border-radius: 4px;
+    padding: 2px;
 }
 
-/* تنسيق الـ 3D للبطاقات (يمنع تداخل النصوص) */
-.matches-grid {
-    display: flex; justify-content: center; padding: 20px;
+/* تنسيق الجدول */
+.table-container { padding: 50px 10%; text-align: center; }
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #111;
+    border-radius: 15px;
+    overflow: hidden;
 }
 
-.match-card {
+.stats-table th { background: #1a1a1a; color: var(--neon-green); padding: 15px; }
+.stats-table td { padding: 12px; border-bottom: 1px solid #222; }
+
+.team-cell {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: bold;
+}
+
+/* تأثير الـ 3D عند التمرير */
+.stats-table tr:hover {
     background: #1a1a1a;
-    border: 1px solid rgba(0, 255, 136, 0.3);
-    border-radius: 20px;
-    padding: 30px;
-    width: 380px;
-    transition: 0.5s;
-    transform-style: preserve-3d;
-    perspective: 1000px;
-}
-
-.match-card:hover {
-    transform: rotateY(10deg) rotateX(5deg) translateY(-15px);
-    border-color: var(--neon);
-    box-shadow: 0 15px 40px rgba(0, 255, 136, 0.2);
-}
-
-/* تنسيق الفريقين والنتيجة داخل الكارت */
-.score-row {
-    display: flex; justify-content: space-between; align-items: center; margin: 20px 0;
-}
-
-.team { display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1; }
-
-.team img {
-    width: 70px !important; height: 70px !important;
-    object-fit: contain; background: white;
-}
-
-.score-badge {
-    background: #000; color: var(--neon); padding: 10px 20px;
-    border-radius: 12px; font-size: 26px; font-weight: bold;
-}
-
-.btn-3d {
-    width: 100%; padding: 12px; background: var(--neon); color: black;
-    border: none; border-radius: 10px; font-weight: bold; cursor: pointer;
+    transform: scale(1.01);
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.1);
 }
