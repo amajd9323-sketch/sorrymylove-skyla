@@ -1,85 +1,96 @@
 :root {
-    --primary-color: #00ff88; /* اللون الأخضر الفسفوري من صورتك */
-    --bg-dark: #0a0a0a;
-    --card-bg: #111111;
-    --text-white: #ffffff;
+    --primary: #00ff88; /* الأخضر الفسفوري */
+    --bg: #0a0a0a;
+    --card: #141414;
+    --text: #ffffff;
+    --gray: #888;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    direction: rtl;
 }
 
-/* الهيدر والتنقل */
+/* الهيدر */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
-    border-bottom: 2px solid var(--primary-color);
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 1px solid #222;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.logo { font-size: 24px; font-weight: bold; }
-.logo span { color: var(--primary-color); }
+.logo { font-size: 24px; font-weight: 800; color: var(--text); }
+.logo span { color: var(--primary); }
 
 nav ul { display: flex; list-style: none; gap: 20px; }
-nav a { color: white; text-decoration: none; }
-nav a.active { color: var(--primary-color); }
+nav a { color: var(--text); text-decoration: none; font-weight: 500; transition: 0.3s; }
+nav a:hover, nav a.active { color: var(--primary); }
 
-/* الحاوية والبطاقات */
+/* الحاوية والبطاقات (الرئيسية) */
 .container {
+    max-width: 1200px;
+    margin: 40px auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
-    padding: 50px 20px;
+    gap: 25px;
+    padding: 0 20px;
 }
 
 .card {
-    background: var(--card-bg);
-    border: 1px solid #333;
-    border-radius: 20px;
-    padding: 30px;
-    width: 350px;
+    background: var(--card);
+    border-radius: 15px;
+    padding: 25px;
+    width: 400px;
+    border: 1px solid #222;
     text-align: center;
+}
+
+.card.highlight { border-color: var(--primary); box-shadow: 0 0 15px rgba(0, 255, 136, 0.1); }
+
+.match-header { color: var(--primary); font-size: 0.9rem; margin-bottom: 20px; }
+
+.match-body { display: flex; justify-content: space-around; align-items: center; margin-bottom: 20px; }
+.team img { width: 70px; display: block; margin: 0 auto 10px; }
+
+.score { font-size: 32px; font-weight: bold; background: #1a1a1a; padding: 10px 25px; border-radius: 8px; }
+.score-green { background: var(--primary); color: #000; box-shadow: 0 0 20px var(--primary); }
+
+.description { color: var(--gray); font-style: italic; margin-bottom: 20px; }
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
     transition: 0.3s;
 }
+.btn-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+.btn-solid { background: var(--primary); color: #000; border: none; }
 
-.card.highlight {
-    border: 1px solid var(--primary-color);
-    box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
-}
-
-.match-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 0;
-}
-
-.team img { width: 60px; height: auto; }
-
-.score { font-size: 28px; font-weight: bold; background: #222; padding: 10px 20px; border-radius: 10px; }
-.score-highlight { 
-    font-size: 28px; font-weight: bold; 
-    background: var(--primary-color); color: black; 
-    padding: 10px 20px; border-radius: 10px;
-    box-shadow: 0 0 20px var(--primary-color);
-}
-
-/* الأزرار */
-button { cursor: pointer; padding: 10px 25px; border-radius: 8px; width: 100%; font-weight: bold; }
-.btn-outline { background: transparent; color: var(--primary-color); border: 2px solid var(--primary-color); }
-.btn-solid { background: var(--primary-color); color: black; border: none; }
+/* الجداول (صفحة table.html) */
+table { width: 100%; border-collapse: collapse; margin-top: 20px; background: var(--card); border-radius: 10px; overflow: hidden; }
+th, td { padding: 15px; text-align: center; border-bottom: 1px solid #222; }
+th { background: #1a1a1a; color: var(--primary); }
 
 /* التجاوب مع الموبايل */
 @media (max-width: 768px) {
-    .container { flex-direction: column; align-items: center; }
-    .card { width: 90%; }
     header { flex-direction: column; gap: 15px; }
+    .card { width: 100%; }
+    .score { font-size: 24px; padding: 8px 15px; }
 }
-
-footer { text-align: center; padding: 20px; font-size: 12px; color: #666; }
