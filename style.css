@@ -1,51 +1,29 @@
-/* الإعدادات العامة */
-:root {
-    --neon-green: #00ff88;
-    --dark-bg: #0a0a0a;
-}
-
-body {
-    background-color: var(--dark-bg);
-    color: white;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
-    margin: 0;
-}
-
-/* حل مشكلة الشعارات - جعلها تظهر بوضوح بخلفية بيضاء خفيفة */
-img {
-    width: 35px;
-    height: 35px;
+/* إصلاحات الشعارات الظاهرة في صورك */
+.team-cell img {
+    width: 30px !important;
+    height: 30px !important;
     object-fit: contain;
-    margin-left: 10px;
-    background: rgba(255, 255, 255, 0.9); /* خلفية بيضاء لظهور الشعارات المفرغة */
-    border-radius: 4px;
-    padding: 2px;
+    margin-left: 12px;
+    background: white; /* ضروري لظهور الشعارات المفرغة */
+    border-radius: 50%;
+    padding: 3px;
+    border: 1px solid var(--neon-green);
 }
-
-/* تنسيق الجدول */
-.table-container { padding: 50px 10%; text-align: center; }
-.stats-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #111;
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.stats-table th { background: #1a1a1a; color: var(--neon-green); padding: 15px; }
-.stats-table td { padding: 12px; border-bottom: 1px solid #222; }
 
 .team-cell {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    gap: 10px;
     font-weight: bold;
+    color: white;
 }
 
-/* تأثير الـ 3D عند التمرير */
-.stats-table tr:hover {
-    background: #1a1a1a;
-    transform: scale(1.01);
-    transition: 0.3s;
-    box-shadow: 0 0 15px rgba(0, 255, 136, 0.1);
+/* تأثير الـ 3D والزجاج */
+.table-container {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid rgba(0, 255, 136, 0.2);
 }
