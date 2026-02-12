@@ -1,41 +1,124 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
-    <title>غزاوي كورة - الرئيسية</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For Skyla ❤️</title>
+    <style>
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body {
+            margin: 0; padding: 0; display: flex; justify-content: center; align-items: center;
+            min-height: 100vh; background: #fff5f7; font-family: 'Arial', sans-serif;
+            overflow: hidden; text-align: center;
+        }
+
+        .container {
+            width: 90%; max-width: 380px; background: white;
+            padding: 30px 15px; border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(255, 77, 109, 0.2); z-index: 10;
+        }
+
+        .photo-gallery {
+            display: flex; justify-content: center; gap: 8px; margin-bottom: 20px;
+        }
+        .photo-gallery img {
+            width: 75px; height: 75px; border-radius: 50%;
+            object-fit: cover; border: 3px solid #ff4d6d;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .skyla-title { color: #ff4d6d; font-size: 1.1rem; letter-spacing: 1px; font-weight: bold; }
+        h1 { color: #c9184a; font-size: 1.6rem; margin: 10px 0; }
+
+        .btn-container {
+            display: flex; flex-direction: column; align-items: center;
+            gap: 15px; margin-top: 20px; position: relative; height: 160px;
+        }
+
+        button {
+            width: 220px; padding: 16px; font-size: 1.1rem; border: none;
+            border-radius: 50px; cursor: pointer; font-weight: bold;
+            transition: all 0.3s ease; touch-action: manipulation;
+        }
+
+        #yesBtn { background: #ff4d6d; color: white; box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4); z-index: 5; }
+        #noBtn { background: #fff0f3; color: #ff4d6d; border: 1px solid #ffb3c1; position: absolute; top: 80px; }
+
+        /* توقيع إبراهيم */
+        .signature {
+            margin-top: 25px;
+            font-size: 0.85rem;
+            color: #ff8fa3;
+            font-style: italic;
+            border-top: 1px solid #fff0f3;
+            padding-top: 15px;
+        }
+
+        .floating-heart {
+            position: absolute; bottom: -10%; color: #ffb3c1; pointer-events: none;
+            animation: floatUp linear forwards; opacity: 0.7;
+        }
+        @keyframes floatUp { to { transform: translateY(-110vh) rotate(360deg); opacity: 0; } }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">غزاوي <span>كورة</span></div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">الرئيسية</a></li>
-            <li><a href="table.html">ترتيب الدوريات</a></li>
-        </ul>
-    </nav>
 
     <div class="container">
-        <h1 class="section-title">أهم نتائج البطولات</h1>
-        
-        <div class="match-card">
-            <p>دوري أبطال أوروبا - إياب</p>
-            <div class="teams-display">
-                <div class="team-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg">
-                    <p>برشلونة</p>
-                </div>
-                <div class="result">0 - 4</div>
-                <div class="team-box">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg">
-                    <p>ليفربول</p>
-                </div>
+        <div id="main-content">
+            <div class="photo-gallery">
+                <img src="ski.jpeg" alt="Memory 1">
+                <img src="ski1.jpeg" alt="Memory 2">
+                <img src="sky.jpeg" alt="Memory 3">
             </div>
-            <p>ريمونتادا تاريخية في أنفيلد</p>
-            <button class="btn-neon" onclick="location.href='https://www.youtube.com'">مشاهدة الأهداف</button>
+
+            <span class="skyla-title">DEAREST SKYLA</span>
+            <h1>Will you be my Valentine? 🌹</h1>
+            
+            <div class="btn-container">
+                <button id="yesBtn" onclick="celebrate()">YES, I WILL! ❤️</button>
+                <button id="noBtn" ontouchstart="moveButton()" onclick="moveButton()">No 🥺</button>
+            </div>
+
+            <div class="signature">
+                Made with ❤️ by your love, IBRAHIM
+            </div>
         </div>
     </div>
+
+    <script>
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            const maxX = window.innerWidth - btn.offsetWidth - 20;
+            const maxY = window.innerHeight - btn.offsetHeight - 20;
+            btn.style.position = 'fixed';
+            btn.style.left = Math.random() * maxX + 'px';
+            btn.style.top = Math.random() * maxY + 'px';
+        }
+
+        function celebrate() {
+            document.getElementById('main-content').innerHTML = `
+                <div style="font-size: 60px;">💖</div>
+                <h1 style="color: #ff4d6d;">I Love You Forever, Skyla!</h1>
+                <p>You've made my world beautiful.</p>
+                <img src="skyla.jpeg" style="width:100%; border-radius:20px; margin-top:15px; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                <div style="font-size: 30px; margin-top: 15px;">✨🌹✨</div>
+                <div class="signature" style="margin-top: 20px;">
+                    Yours always, IBRAHIM
+                </div>
+            `;
+            setInterval(createHeart, 200);
+        }
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 800);
+    </script>
 </body>
 </html>
